@@ -1,0 +1,152 @@
+:root {
+    --clr-primary-400: hsl(215, 51%, 70%);
+    --clr-primary-300: hsl(178, 100%, 50%);
+    --clr-primary-300-transparent: rgba(0, 255, 247, 0.5);
+    
+    --clr-neutral-900: hsl(217, 54%, 11%);
+    --clr-neutral-800: hsl(216, 50%, 16%);
+    --clr-neutral-700: hsl(215, 32%, 27%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-semi-bold: 600;
+}
+
+body {
+    background-color: var(--clr-neutral-900);
+    color: var(--clr-primary-400);
+
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: var(--fw-light);
+
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+
+    padding: 1.5rem;
+}
+
+
+.card{
+    background-color: var(--clr-neutral-800);
+
+    max-width: 350px;
+    padding: 1.5rem;
+    border-radius: 1rem;
+
+    margin-bottom: 1rem;
+}
+
+.card__img {
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.card__img:focus{
+    outline: 2px solid var(--clr-primary-300);
+    outline-offset: 2px;
+}
+
+.card__img:is(:hover, :focus) .overlay{
+    cursor: pointer;
+    height: 100%;
+    width: 100%;    
+    
+    position: absolute;
+    top: 0;
+    
+    background-color: var(--clr-primary-300-transparent);
+    background-image: url(../assets/images/icon-view.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+    
+.card__content {
+    display: grid;
+    gap: 1.5rem;
+
+    padding: 1.5rem 0 1.5rem;
+}
+
+.card__title {
+    width: max-content;
+    color: var(--clr-neutral-100);
+
+    font-size: 1.375rem;
+    font-weight: var(--fw-semi-bold);    
+}
+
+.card__values{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+.card__value p{
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+p[data-icon="clock"]::before {
+    content: "";
+    background-image: url(../assets/images/icon-clock.svg);
+    width: 17px;
+    height: 17px;
+}
+
+p[data-icon="ethereum"]::before {
+    content: "";
+    background-image: url(../assets/images/icon-ethereum.svg);
+    width: 11px;
+    height: 18px;
+}
+
+.card__value:first-child{
+    color: var(--clr-primary-300);  
+
+    font-weight: var(--fw-semi-bold);
+}
+
+.card__footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    font-size: 1rem;
+
+    border-top: 1px solid var(--clr-neutral-700);
+    padding: 1rem 0 0.5rem;
+}
+
+.card__footer img {
+    height: 2rem;
+    border: 1px solid var(--clr-neutral-100);
+    border-radius: 100%;
+}
+
+.card__footer span {
+    color: var(--clr-neutral-100);
+}
+
+.hover:hover{
+    cursor: pointer;
+    color: var(--clr-primary-300);
+}
+
+.hover:focus {
+    color: var(--clr-primary-300);
+    text-decoration: underline;
+}
+
+
+@media (min-width: 400px) {
+    body {
+        font-size: 1.125rem;
+    }
+}
